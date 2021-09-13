@@ -23,7 +23,10 @@ jobs:
           # list of Docker images to use as base name for tags
           images: |
             schtobia/urlwatch
-          #labels: |
+          labels: |
+            org.opencontainers.image.title=urlwatch
+            org.opencontainers.image.description=urlwatch is a tool for monitoring webpages for updates.
+
           tags: |
             type=schedule
             type=ref,event=branch
