@@ -7,9 +7,9 @@ LABEL maintainer="EasyPi Software Foundation"
 
 LABEL org.opencontainers.image.title="urlwatch"
 LABEL org.opencontainers.image.description="urlwatch is a tool for monitoring webpages for updates."
-LABEL org.opencontainers.image.url="https://hub.docker.com/r/vimagick/urlwatch"
-LABEL org.opencontainers.image.documentation="https://hub.docker.com/r/vimagick/urlwatch"
-LABEL org.opencontainers.image.source="https://www.github.com/vimagick/dockerfiles"
+LABEL org.opencontainers.image.url="https://hub.docker.com/r/schtobia/urlwatch"
+LABEL org.opencontainers.image.documentation="https://hub.docker.com/r/schtobia/urlwatch"
+LABEL org.opencontainers.image.source="https://www.github.com/schtobia/dockerfiles"
 
 RUN set -xe \
     && apt-get update  \
@@ -37,4 +37,4 @@ RUN set -xe \
 VOLUME /root/.urlwatch
 WORKDIR /root/.urlwatch
 
-CMD ["crond", "-f", "-L", "/dev/stdout"]
+CMD ["cron", "-f", "-L", "/dev/stdout"]
