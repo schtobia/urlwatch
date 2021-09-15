@@ -7,7 +7,7 @@ urlwatch
 
 ```yaml
 urlwatch:
-  image: vimagick/urlwatch
+  image: schtobia/urlwatch
   volumes:
     - ./data:/root/.urlwatch
   restart: unless-stopped
@@ -65,7 +65,7 @@ See the [crontab manpage for details on format](https://man7.org/linux/man-pages
 
 ```yaml
 urlwatch:
-  image: vimagick/urlwatch
+  image: schtobia/urlwatch
   volumes:
     - ./data:/root/.urlwatch
     - ./data/crontab:/etc/crontabs/root

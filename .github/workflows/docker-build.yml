@@ -1,9 +1,6 @@
 name: ci
 
-on:
-  push:
-    branches:
-      - 'split'
+on: push
 
 jobs:
   docker:
@@ -23,10 +20,6 @@ jobs:
           # list of Docker images to use as base name for tags
           images: |
             schtobia/urlwatch
-          labels: |
-            org.opencontainers.image.title=urlwatch
-            org.opencontainers.image.description=urlwatch is a tool for monitoring webpages for updates.
-
           tags: |
             type=schedule
             type=ref,event=branch
@@ -42,9 +35,20 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build
         id: docker_build
         uses: docker/build-push-action@v2
+        if: i${{ github.ref != 'refs/heads/master' }}
+        with:
+          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      -
+        name: Build and push
+        id: docker_build_and_push
+        uses: docker/build-push-action@v2
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
