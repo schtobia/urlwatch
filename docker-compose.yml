@@ -1,6 +1,6 @@
 services:
   urlwatch:
-    image: vimagick/urlwatch
+    image: schtobia/urlwatch
     volumes:
       - ./data:/root/.urlwatch
       - ./data/crontab:/etc/crontabs/root
