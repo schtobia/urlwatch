@@ -1,0 +1,21 @@
+FROM python:slim
+
+RUN set -xe \
+    && pip3 install --no-cache-dir \
+                    aioxmpp        \
+                    beautifulsoup4 \
+                    chump          \
+                    cssbeautifier  \
+                    html2text      \
+                    jq             \
+                    jsbeautifier   \
+                    keyrings.alt   \
+                    markdown2      \
+                    matrix_client  \
+                    pushbullet.py  \
+                    urlwatch
+
+VOLUME /root/.urlwatch
+WORKDIR /root/.urlwatch
+
+ENTRYPOINT ["urlwatch"]
