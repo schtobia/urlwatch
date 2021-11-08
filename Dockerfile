@@ -13,7 +13,7 @@ LABEL org.opencontainers.image.source="https://www.github.com/schtobia/dockerfil
 
 RUN set -xe \
     && apt-get update  \
-    && apt-get -y install cron \
+    && apt-get -y install cron build-essential \
     && find /var/lib/apt -type f -delete \
     && find /var/cache/apt -type f -delete
 
